@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prisberegner – Trovic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="trovic_full (3).html" class="nav-logo">Tro<span>vic</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">Om os</a></li>
+      <li><a href="trovic_full (3).html#services">Services</a></li>
+      <li><a href="trovic_full (3).html#projects">Projekter</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Tag kontakt</a>
+  </div>
+</nav>
+<script src="nav.js"></script>
+
+<section class="calc-hero">
+  <div class="container">
+    <div class="calc-label"><span class="calc-label-dot"></span>Prisberegner</div>
+    <h1>Hvad koster dit<br><em>næste projekt?</em></h1>
+    <p>Besvar tre hurtige spørgsmål og få et realistisk estimat — ingen forpligtelse.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="calc-wrap">
+
+    <!-- STEP 1 -->
+    <div class="step-block visible" id="block1">
+      <div class="step-card">
+        <div class="step-q">Spørgsmål 1 af 3</div>
+        <div class="step-title">Hvad har du brug for?</div>
+        <div class="type-grid">
+          <div class="type-card" data-type="hjemmeside" onclick="selectType(this)">
+            <div class="type-icon">🌐</div>
+            <div class="type-name">Hjemmeside</div>
+            <div class="type-desc">Landing page, virksomhedssite eller stor platform</div>
+          </div>
+          <div class="type-card" data-type="webshop" onclick="selectType(this)">
+            <div class="type-icon">🛒</div>
+            <div class="type-name">Webshop</div>
+            <div class="type-desc">E-commerce løsning optimeret til konvertering</div>
+          </div>
+          <div class="type-card" data-type="app" onclick="selectType(this)">
+            <div class="type-icon">📱</div>
+            <div class="type-name">Webapp / App</div>
+            <div class="type-desc">Webapplikation eller native mobilapp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-block" id="block2">
+      <div class="step-card">
+        <div class="step-q">Spørgsmål 2 af 3</div>
+        <div class="step-title">Hvad er omfanget?</div>
+        <div class="scope-grid" id="scopeGrid"></div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-block" id="block3">
+      <div class="step-card">
+        <div class="step-q">Spørgsmål 3 af 3</div>
+        <div class="step-title">Har du brug for nogle af disse?</div>
+        <div class="addons-grid">
+          <div class="addon-row" data-price="3000" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="addon-check"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="addon-name">CMS / Admin panel</div>
+            </div>
+            <div class="addon-price">+3.000 kr.</div>
+          </div>
+          <div class="addon-row" data-price="2000" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="addon-check"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="addon-name">Animationer & avanceret design</div>
+            </div>
+            <div class="addon-price">+2.000 kr.</div>
+          </div>
+          <div class="addon-row" data-price="4000" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="addon-check"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="addon-name">SEO-opsætning</div>
+            </div>
+            <div class="addon-price">+4.000 kr.</div>
+          </div>
+          <div class="addon-row" data-price="4000" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="addon-check"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="addon-name">Betalingsintegration</div>
+            </div>
+            <div class="addon-price">+4.000 kr.</div>
+          </div>
+          <div class="addon-row" data-price="4000" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="addon-check"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="addon-name">Flersproget indhold</div>
+            </div>
+            <div class="addon-price">+4.000 kr.</div>
+          </div>
+          <div class="addon-row" data-price="akut" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="addon-check"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="addon-name">Akut levering</div>
+            </div>
+            <div class="addon-price">+25%</div>
+          </div>
+        </div>
+        <div class="addon-skip">Ingen tilvalg? Det er helt fint — tryk bare videre.</div>
+        <button class="reveal-btn" onclick="showResult()">
+          Se dit estimat <span class="reveal-btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="step-block" id="blockResult">
+      <div class="result-card">
+        <div class="result-label">Dit estimat</div>
+        <div class="result-price" id="resultPrice">—</div>
+        <div class="result-note">Ekskl. moms · Vejledende prisinterval</div>
+        <div class="result-divider"></div>
+        <div class="result-breakdown" id="resultBreakdown"></div>
+        <div class="result-total-row">
+          <span class="result-total-label">Estimeret total</span>
+          <span class="result-total-val" id="resultTotal">—</span>
+        </div>
+        <a href="contact.html" class="result-cta">Få et præcist tilbud →</a>
+        <div class="result-cta-note">Ingen forpligtelse · Svar inden 24 timer</div>
+        <div class="result-restart" onclick="restart()">Start forfra</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="trovic_full (3).html" class="footer-logo">Tro<span>vic</span></a>
+        <p class="footer-tagline">Vi designer og bygger digitale produkter der gør brands umulige at ignorere.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Behance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 13.5H6v3h3.5c1 0 1.5-.5 1.5-1.5s-.5-1.5-1.5-1.5zm-.5-4H6v2.5h3c.8 0 1.3-.5 1.3-1.3 0-.7-.5-1.2-1.3-1.2zM22 9.5h-5V8h5v1.5zM2 5h8.5C13 5 15 6.5 15 9c0 1.5-.8 2.7-2 3.3C14.5 13 15.5 14.3 15.5 16c0 2.8-2.2 4-5 4H2V5zm17 6c0 2.5-1.8 4.5-4.5 4.5S10 13.5 10 11s1.8-4.5 4.5-4.5S19 8.5 19 11zm-2.5 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-nav">
+          <li><a href="trovic_full (3).html#services">Hjemmesider</a></li>
+          <li><a href="trovic_full (3).html#services">Webshops</a></li>
+          <li><a href="trovic_full (3).html#services">Webapps &amp; Apps</a></li>
+          <li><a href="priser.html">Prisberegner</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Virksomhed</div>
+        <ul class="footer-nav">
+          <li><a href="about.html">Om os</a></li>
+          <li><a href="trovic_full (3).html#projects">Projekter</a></li>
+          <li><a href="trovic_full (3).html#projects">Cases</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Kontakt</div>
+        <ul class="footer-nav">
+          <li><a href="mailto:hello@trovic.dk">hello@trovic.dk</a></li>
+          <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
+          <li><span>København, Danmark</span></li>
+          <li><a href="contact.html" class="footer-cta-link">Start et projekt →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2024 Trovic Studio ApS</span>
+        <span class="footer-divider">·</span>
+        <span>CVR: 12 34 56 78</span>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Privatlivspolitik</a>
+        <a href="#">Cookiepolitik</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const SCOPES = {
+  hjemmeside: [
+    { name: 'Landing Page',    desc: '1–3 sider, CTA, standard sektioner, mobiloptimeret',                min: 6000,   max: 12000  },
+    { name: 'Virksomhedssite', desc: '5–10 sider, custom design, kontaktformular, basis SEO',             min: 18000,  max: 35000  },
+    { name: 'Stor Platform',   desc: '10+ sider, kompleks struktur, integrationer, skalerbar opsætning',  min: 45000,  max: 80000  },
+  ],
+  webshop: [
+    { name: 'Starter',    desc: 'Op til 50 produkter, theme-tilpasning, betaling/fragt, basis opsætning', min: 15000,  max: 28000  },
+    { name: 'Vækst',      desc: '50–500 produkter, avanceret filtrering, CRO-fokus, apps/integrationer',  min: 35000,  max: 60000  },
+    { name: 'Enterprise', desc: '500+ produkter, custom checkout, ERP/PIM-integration',                   min: 75000,  max: 120000 },
+  ],
+  app: [
+    { name: 'MVP',               desc: 'Kernekoncept, én platform (iOS eller Android), basis backend',    min: 45000,  max: 75000  },
+    { name: 'Fuld App',          desc: 'Komplet feature-set, begge platforme',                            min: 80000,  max: 140000 },
+    { name: 'Kompleks Platform', desc: 'Skalerbar arkitektur, API-lag, dashboard, avanceret backend',     min: 150000, max: 250000 },
+  ],
+};
+
+let state = { type: null, scopeMin: null, scopeMax: null, scopeName: null, addons: [], akut: false };
+
+function fmt(n){ return n.toLocaleString('da-DK') + ' kr.'; }
+
+function reveal(id){
+  const el = document.getElementById(id);
+  el.classList.add('visible');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
+}
+
+function selectType(el){
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.type = el.dataset.type;
+  state.scopeMin = null; state.scopeMax = null; state.scopeName = null;
+  state.addons = []; state.akut = false;
+  document.querySelectorAll('.addon-row').forEach(r => r.classList.remove('selected'));
+
+  // Reset downstream
+  document.getElementById('block2').classList.remove('visible');
+  document.getElementById('block3').classList.remove('visible');
+  document.getElementById('blockResult').classList.remove('visible');
+
+  // Render scopes (without prices)
+  const grid = document.getElementById('scopeGrid');
+  grid.innerHTML = '';
+  SCOPES[state.type].forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'scope-option';
+    div.innerHTML = `
+      <div class="scope-radio"><div class="scope-radio-dot"></div></div>
+      <div>
+        <div class="scope-name">${s.name}</div>
+        <div class="scope-desc">${s.desc}</div>
+      </div>`;
+    div.onclick = () => selectScope(div, s);
+    grid.appendChild(div);
+  });
+
+  setTimeout(() => reveal('block2'), 80);
+}
+
+function selectScope(el, scope){
+  document.querySelectorAll('.scope-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  state.scopeMin = scope.min;
+  state.scopeMax = scope.max;
+  state.scopeName = scope.name;
+
+  document.getElementById('block3').classList.remove('visible');
+  document.getElementById('blockResult').classList.remove('visible');
+  setTimeout(() => reveal('block3'), 80);
+}
+
+function toggleAddon(el){
+  const price = el.dataset.price;
+  el.classList.toggle('selected');
+  if(price === 'akut'){
+    state.akut = el.classList.contains('selected');
+  } else {
+    const val = parseInt(price);
+    const name = el.querySelector('.addon-name').textContent;
+    if(el.classList.contains('selected')){
+      state.addons.push({ name, price: val });
+    } else {
+      state.addons = state.addons.filter(a => a.name !== name);
+    }
+  }
+}
+
+function showResult(){
+  if(!state.scopeMin) return;
+
+  const addonSum = state.addons.reduce((s,a) => s + a.price, 0);
+  let minTotal = state.scopeMin + addonSum;
+  let maxTotal = state.scopeMax + addonSum;
+  if(state.akut){ minTotal = Math.round(minTotal * 1.25); maxTotal = Math.round(maxTotal * 1.25); }
+
+  document.getElementById('resultPrice').innerHTML = `Fra <em>${fmt(minTotal)}</em>`;
+
+  let lines = `<div class="result-line"><span class="result-line-label">${state.scopeName}</span><span class="result-line-val">${fmt(state.scopeMin)} – ${fmt(state.scopeMax)}</span></div>`;
+  state.addons.forEach(a => {
+    lines += `<div class="result-line"><span class="result-line-label">${a.name}</span><span class="result-line-val accent">+${fmt(a.price)}</span></div>`;
+  });
+  if(state.akut){
+    lines += `<div class="result-line"><span class="result-line-label">Akut levering</span><span class="result-line-val accent">+25%</span></div>`;
+  }
+  document.getElementById('resultBreakdown').innerHTML = lines;
+  document.getElementById('resultTotal').textContent = `${fmt(minTotal)} – ${fmt(maxTotal)}`;
+
+  reveal('blockResult');
+}
+
+function restart(){
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.addon-row').forEach(r => r.classList.remove('selected'));
+  state = { type: null, scopeMin: null, scopeMax: null, scopeName: null, addons: [], akut: false };
+  ['block2','block3','blockResult'].forEach(id => document.getElementById(id).classList.remove('visible'));
+  document.getElementById('block1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="640"
+     height="640"
+     viewBox="0 0 640 640"
+     role="img"
+     aria-label="Diabetes drop icon">
+  <path
+    fill="#2d6a5a"
+    d="M320 150
+       C320 150 230 260 230 345
+       C230 425 278 470 320 470
+       C362 470 410 425 410 345
+       C410 260 320 150 320 150Z"
+  />
+</svg>

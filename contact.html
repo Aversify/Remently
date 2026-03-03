@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – Trovic Creative Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="trovic_full (3).html" class="nav-logo">Tro<span>vic</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">Om os</a></li>
+      <li><a href="trovic_full (3).html#services">Services</a></li>
+      <li><a href="trovic_full (3).html#projects">Projekter</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Tag kontakt</a>
+  </div>
+</nav>
+<script src="nav.js"></script>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="container">
+    <div class="contact-hero-inner">
+      <div>
+        <div class="contact-hero-label">
+          <span class="hero-label-dot"></span>Kontakt os
+        </div>
+        <h1 class="contact-hero-headline">
+          Lad os skabe<br>noget <em>stort</em><br>sammen.
+        </h1>
+      </div>
+      <div class="hero-availability">
+        <span class="avail-dot"></span>
+        <span class="avail-text">Tilgængelig for projekter</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BODY -->
+<section class="contact-body">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: info -->
+      <div class="reveal">
+        <p class="contact-info-sub">Vi er altid klar til at høre om dit næste projekt. Udfyld formularen, og vi vender tilbage inden for 24 timer.</p>
+
+        <div class="contact-detail-list">
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Email</span>
+              <span class="detail-value">hello@trovic.dk</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Base</span>
+              <span class="detail-value">København, Danmark</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Svartid</span>
+              <span class="detail-value">Inden for 24 timer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <a href="#" class="social-pill">↗ Instagram</a>
+          <a href="#" class="social-pill">↗ LinkedIn</a>
+          <a href="#" class="social-pill">↗ Behance</a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap reveal" style="transition-delay:0.15s;">
+        <div id="formWrap">
+          <p class="form-title">Send os en besked</p>
+          <p class="form-subtitle">Fortæl os om dit projekt — vi vurderer det og vender hurtigt tilbage.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fname">Fornavn</label>
+                <input class="form-input" id="fname" type="text" placeholder="Dit fornavn" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lname">Efternavn</label>
+                <input class="form-input" id="lname" type="text" placeholder="Dit efternavn" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" id="email" type="email" placeholder="din@email.dk" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="company">Virksomhed <span style="opacity:.4;font-weight:500;text-transform:none;letter-spacing:0;">(valgfrit)</span></label>
+              <input class="form-input" id="company" type="text" placeholder="Dit firmanavn">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="type">Projekttype</label>
+              <select class="form-select" id="type" required>
+                <option value="" disabled selected>Hvad handler det om?</option>
+                <option>Web Design</option>
+                <option>UI/UX Design</option>
+                <option>E-commerce / Shopify</option>
+                <option>Branding &amp; Identitet</option>
+                <option>Mobile App</option>
+                <option>Andet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Besked</label>
+              <textarea class="form-textarea" id="message" placeholder="Fortæl os om dit projekt — vision, budget, deadline..." required></textarea>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <button type="submit" class="send-btn">
+              Send besked
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+            <p class="form-note">Vi deler aldrig dine oplysninger med tredjepart.</p>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div class="success-state" id="successState">
+          <div class="success-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <p class="success-title">Besked sendt!</p>
+          <p class="success-sub">Tak for din henvendelse. Vi vender tilbage inden for 24 timer.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ STRIP -->
+<section class="faq-strip">
+  <div class="container">
+    <div class="faq-strip-inner">
+      <div class="reveal">
+        <div class="faq-strip-label">
+          <span class="hero-label-dot"></span>FAQ
+        </div>
+        <h2 class="faq-strip-title">Ofte stillede <em>spørgsmål</em></h2>
+      </div>
+      <div class="faq-list reveal" style="transition-delay:0.12s;">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Hvad koster et projekt typisk?
+            <span class="faq-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Prisen afhænger af projektets omfang og kompleksitet. Vi tilbyder et gratis indledende møde, hvor vi laver et skræddersyet tilbud baseret på dine behov og mål.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Hvor lang tid tager et typisk projekt?
+            <span class="faq-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Et webdesign-projekt tager typisk 3–6 uger afhængigt af størrelse. Vi tilbyder også hurtige leverancer ved behov — spørg os om vores fast-track mulighed.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Arbejder I med virksomheder i hele Danmark?
+            <span class="faq-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Ja — vi arbejder med kunder over hele Danmark og internationalt. Møder afholdes online eller fysisk i København.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Hvad sker der efter jeg sender en besked?
+            <span class="faq-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Vi vender tilbage inden for 24 timer med et svar. Herefter booker vi et gratis 30-minutters opkald, hvor vi afdækker dit projekt og drøfter de næste skridt.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="trovic_full (3).html" class="footer-logo">Tro<span>vic</span></a>
+        <p class="footer-tagline">Vi designer og bygger digitale produkter der gør brands umulige at ignorere.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Behance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 13.5H6v3h3.5c1 0 1.5-.5 1.5-1.5s-.5-1.5-1.5-1.5zm-.5-4H6v2.5h3c.8 0 1.3-.5 1.3-1.3 0-.7-.5-1.2-1.3-1.2zM22 9.5h-5V8h5v1.5zM2 5h8.5C13 5 15 6.5 15 9c0 1.5-.8 2.7-2 3.3C14.5 13 15.5 14.3 15.5 16c0 2.8-2.2 4-5 4H2V5zm17 6c0 2.5-1.8 4.5-4.5 4.5S10 13.5 10 11s1.8-4.5 4.5-4.5S19 8.5 19 11zm-2.5 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-nav">
+          <li><a href="trovic_full (3).html#services">Hjemmesider</a></li>
+          <li><a href="trovic_full (3).html#services">Webshops</a></li>
+          <li><a href="trovic_full (3).html#services">Webapps &amp; Apps</a></li>
+          <li><a href="priser.html">Prisberegner</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Virksomhed</div>
+        <ul class="footer-nav">
+          <li><a href="about.html">Om os</a></li>
+          <li><a href="trovic_full (3).html#projects">Projekter</a></li>
+          <li><a href="trovic_full (3).html#projects">Cases</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Kontakt</div>
+        <ul class="footer-nav">
+          <li><a href="mailto:hello@trovic.dk">hello@trovic.dk</a></li>
+          <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
+          <li><span>København, Danmark</span></li>
+          <li><a href="contact.html" class="footer-cta-link">Start et projekt →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2024 Trovic Studio ApS</span>
+        <span class="footer-divider">·</span>
+        <span>CVR: 12 34 56 78</span>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Privatlivspolitik</a>
+        <a href="#">Cookiepolitik</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Form submit (demo – no backend)
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('formWrap').style.display = 'none';
+    const s = document.getElementById('successState');
+    s.style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>

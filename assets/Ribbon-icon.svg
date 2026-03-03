@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <!-- Awareness Ribbon med spredte vinger og afrundede kanter -->
+  <path d="
+    M 150 40
+    C 120 40, 100 60, 100 90
+    C 100 110, 110 125, 120 135
+    L 60 320
+    Q 60 340, 75 340
+    Q 90 340, 110 320
+    L 150 180
+    L 190 320
+    Q 210 340, 225 340
+    Q 240 340, 240 320
+    L 180 135
+    C 190 125, 200 110, 200 90
+    C 200 60, 180 40, 150 40
+    Z
+  " fill="#2d6a5a
+" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Loop detail (sløjfe detalje) -->
+  <ellipse cx="150" cy="75" rx="35" ry="25" fill="#E8E8E8"/>
+</svg>

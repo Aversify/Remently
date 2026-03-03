@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study – Trovic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #f3ede4;
+  --orange: #d94f1e;
+  --dark: #0f1629;
+  --mid: #666;
+  --accent: #d94f1e;
+  --hero-bg: #0f1629;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  font-family: "Manrope", sans-serif;
+  color: var(--dark);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+body.loaded { opacity: 1; }
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ── NAV ─────────────────────────────────────── */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,237,228,0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15,22,41,0.07);
+  padding: 18px 0;
+}
+.nav-inner { max-width: 1300px; margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo {
+  font-size: 22px; font-weight: 800;
+  color: var(--dark); letter-spacing: -0.02em; text-decoration: none;
+}
+.nav-logo span { color: var(--orange); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 600; color: var(--mid);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--orange); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--dark); color: #fff;
+  font-family: "Manrope", sans-serif; font-weight: 700; font-size: 13px;
+  padding: 10px 22px; border-radius: 100px; text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--orange); }
+
+/* ── HERO ────────────────────────────────────── */
+.case-hero {
+  background: var(--hero-bg);
+  padding: 90px 0 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+.case-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+.hero-blob {
+  position: absolute; width: 600px; height: 600px;
+  border-radius: 50%; filter: blur(100px);
+  pointer-events: none; opacity: 0.15;
+  background: var(--accent);
+  top: -200px; right: -100px;
+  transition: background 0.5s ease;
+}
+.case-hero-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1.1fr;
+  gap: 64px; align-items: end; padding-bottom: 60px;
+}
+.case-eyebrow {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-bottom: 22px;
+}
+.eyebrow-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); transition: background 0.4s;
+}
+.case-title {
+  font-size: clamp(40px, 5vw, 68px); font-weight: 800;
+  color: #fff; line-height: 1.05; letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.case-title em {
+  font-family: "Libre Baskerville", serif; font-style: italic;
+  font-weight: 400; color: var(--accent); transition: color 0.4s;
+}
+.case-tagline {
+  font-size: 15px; line-height: 1.75;
+  color: rgba(255,255,255,0.5); max-width: 380px; margin-bottom: 40px;
+}
+.case-meta { display: flex; gap: 36px; flex-wrap: wrap; }
+.case-meta-group { display: flex; flex-direction: column; gap: 8px; }
+.case-meta-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.tag-row { display: flex; gap: 7px; flex-wrap: wrap; }
+.ctag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; padding: 5px 13px; border-radius: 100px;
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);
+}
+.ctag.accent { background: var(--accent); color: #fff; transition: background 0.4s; }
+.hero-img-wrap {
+  border-radius: 20px 20px 0 0; overflow: hidden; align-self: end;
+  box-shadow: 0 -20px 80px rgba(0,0,0,0.4);
+}
+.hero-img-wrap img { width: 100%; display: block; }
+
+/* ── OVERVIEW ────────────────────────────────── */
+.overview-section { padding: 80px 0; }
+.overview-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: rgba(15,22,41,0.08);
+  border-radius: 20px; overflow: hidden;
+}
+.overview-col { background: #fff; padding: 40px 36px; }
+.ov-num {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 14px; transition: color 0.4s;
+}
+.ov-title { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+.ov-text { font-size: 13px; line-height: 1.8; color: var(--mid); }
+
+/* ── STATS ───────────────────────────────────── */
+.stats-section {
+  background: var(--hero-bg); padding: 70px 0;
+  transition: background 0.5s ease;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-col {
+  padding: 0 40px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.stat-col:last-child { border-right: none; }
+.stat-val {
+  font-size: clamp(38px,4vw,54px); font-weight: 800;
+  color: #fff; line-height: 1; margin-bottom: 8px;
+}
+.stat-val .unit { font-size: 0.55em; font-weight: 700; color: var(--accent); transition: color 0.4s; }
+.stat-lbl {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.4); line-height: 1.5;
+}
+
+/* ── PROCESS ─────────────────────────────────── */
+.process-section { padding: 100px 0; }
+.section-eyebrow {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 48px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--mid);
+}
+.section-eyebrow span {
+  width: 8px; height: 8px; background: var(--orange); border-radius: 50%;
+}
+.process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.process-card {
+  background: #fff; border-radius: 20px; padding: 36px 32px;
+  border: 1px solid rgba(15,22,41,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.process-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(15,22,41,0.08); }
+.pc-phase {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 14px; transition: color 0.4s;
+}
+.pc-title { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
+.pc-desc { font-size: 13px; line-height: 1.8; color: var(--mid); }
+
+/* ── FULL IMAGE ──────────────────────────────── */
+.fullimg-section { padding: 0 0 100px; }
+.fullimg-wrap {
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 24px 80px rgba(15,22,41,0.12);
+  border: 1px solid rgba(15,22,41,0.06);
+}
+.fullimg-wrap img { width: 100%; display: block; }
+
+/* ── RESULTS ─────────────────────────────────── */
+.results-section {
+  background: var(--hero-bg); padding: 90px 0;
+  transition: background 0.5s ease;
+}
+.results-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+.res-headline {
+  font-size: clamp(30px,3.5vw,46px); font-weight: 800;
+  color: #fff; line-height: 1.15; margin-bottom: 18px;
+}
+.res-headline em {
+  font-family: "Libre Baskerville", serif; font-style: italic;
+  font-weight: 400; color: var(--accent); transition: color 0.4s;
+}
+.res-sub { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.45); }
+.results-list { border-top: 1px solid rgba(255,255,255,0.08); }
+.result-row {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.res-check {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px; border: 1.5px solid; border-color: var(--accent);
+  background: transparent; transition: border-color 0.4s;
+}
+.res-check svg { stroke: var(--accent); transition: stroke 0.4s; }
+.res-text { font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.7); font-weight: 500; }
+
+/* ── NEXT PROJECT ────────────────────────────── */
+.next-section { padding: 100px 0; }
+.next-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 24px;
+}
+.next-card {
+  display: flex; align-items: stretch; background: var(--dark);
+  border-radius: 24px; overflow: hidden; cursor: pointer;
+  text-decoration: none; min-height: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.next-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(15,22,41,0.18); }
+.next-card-img { width: 55%; overflow: hidden; position: relative; flex-shrink: 0; }
+.next-card-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.next-card:hover .next-card-img img { transform: scale(1.04); }
+.next-card-body {
+  flex: 1; padding: 40px 44px;
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+}
+.next-card-sub { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.next-card-name { font-size: clamp(22px,2.5vw,32px); font-weight: 800; color: #fff; }
+.next-card-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.5);
+  margin-top: 6px; transition: color 0.2s, gap 0.2s;
+}
+.next-card:hover .next-card-cta { color: #fff; gap: 12px; }
+
+/* ── FOOTER ──────────────────────────────────── */
+footer { background: var(--dark); border-top: none; padding: 72px 0 0; }
+.footer-top { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-logo { font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; display: inline-block; margin-bottom: 16px; }
+.footer-logo span { color: var(--orange); }
+.footer-tagline { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.4); max-width: 260px; margin-bottom: 24px; }
+.footer-socials { display: flex; gap: 12px; }
+.footer-social { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background .2s, color .2s; }
+.footer-social:hover { background: var(--orange); color: #fff; }
+.footer-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-nav a, .footer-nav span { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.55); text-decoration: none; transition: color .2s; }
+.footer-nav a:hover { color: #fff; }
+.footer-cta-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px !important; font-weight: 700 !important; color: var(--orange) !important; margin-top: 8px; }
+.footer-cta-link:hover { color: #fff !important; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+.footer-bottom-left { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.25); }
+.footer-bottom-right { display: flex; gap: 24px; }
+.footer-bottom-right a { font-size: 13px; color: rgba(255,255,255,0.25); text-decoration: none; transition: color .2s; }
+.footer-bottom-right a:hover { color: rgba(255,255,255,0.6); }
+@media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .footer-bottom-right { justify-content: center; } }
+
+/* ── 404 STATE ───────────────────────────────── */
+.not-found {
+  display: none; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
+  min-height: 60vh; gap: 16px; padding: 80px 20px;
+}
+.not-found h1 { font-size: 48px; font-weight: 800; color: var(--dark); }
+.not-found p { font-size: 14px; color: var(--mid); }
+.not-found a {
+  margin-top: 8px; display: inline-flex; align-items: center; gap: 8px;
+  background: var(--dark); color: #fff; font-weight: 700; font-size: 13px;
+  padding: 13px 26px; border-radius: 100px; text-decoration: none;
+  transition: background 0.2s;
+}
+.not-found a:hover { background: var(--orange); }
+
+/* ── REVEAL ──────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 900px) {
+  .container { padding: 0 32px; }
+  .case-hero-inner { grid-template-columns: 1fr; }
+  .hero-img-wrap { border-radius: 20px; }
+  .overview-grid, .process-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); row-gap: 36px; }
+  .stat-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 28px; }
+  .stat-col:last-child, .stat-col:nth-child(even) { border-bottom: none; }
+  .results-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  .nav-links { display: none; }
+  .next-card { flex-direction: column; }
+  .next-card-img { width: 100%; height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="trovic_full (3).html">Tro<span>vic</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">Om os</a></li>
+      <li><a href="trovic_full (3).html#services">Services</a></li>
+      <li><a href="trovic_full (3).html#projects">Projekter</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Tag kontakt</a>
+  </div>
+</nav>
+<script src="nav.js"></script>
+
+<!-- HERO -->
+<section class="case-hero" id="caseHero">
+  <div class="hero-blob" id="heroBlob"></div>
+  <div class="container">
+    <div class="case-hero-inner">
+      <div>
+        <div class="case-eyebrow">
+          <span class="eyebrow-dot" id="eyebrowDot"></span>
+          Case Study &mdash; <span id="heroYear"></span>
+        </div>
+        <h1 class="case-title" id="heroTitle"></h1>
+        <p class="case-tagline" id="heroTagline"></p>
+        <div class="case-meta">
+          <div class="case-meta-group">
+            <span class="case-meta-label">Kategori</span>
+            <div class="tag-row" id="heroTags"></div>
+          </div>
+          <div class="case-meta-group">
+            <span class="case-meta-label">Teknologi</span>
+            <div class="tag-row" id="heroTech"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img id="heroImg" src="" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview-section">
+  <div class="container">
+    <div class="overview-grid reveal">
+      <div class="overview-col">
+        <div class="ov-num">01</div>
+        <div class="ov-title">Udfordringen</div>
+        <p class="ov-text" id="ovChallenge"></p>
+      </div>
+      <div class="overview-col">
+        <div class="ov-num">02</div>
+        <div class="ov-title">Løsningen</div>
+        <p class="ov-text" id="ovSolution"></p>
+      </div>
+      <div class="overview-col">
+        <div class="ov-num">03</div>
+        <div class="ov-title">Resultatet</div>
+        <p class="ov-text" id="ovOutcome"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" id="statsSection">
+  <div class="container">
+    <div class="stats-grid" id="statsGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-eyebrow reveal"><span></span>Processen</div>
+    <div class="process-grid" id="processGrid"></div>
+  </div>
+</section>
+
+<!-- FULL IMAGE -->
+<section class="fullimg-section">
+  <div class="container">
+    <div class="fullimg-wrap reveal">
+      <img id="fullImg" src="" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section" id="resultsSection">
+  <div class="container">
+    <div class="results-inner">
+      <div class="reveal">
+        <h2 class="res-headline">Det vi<br>leverede<br><em>together.</em></h2>
+        <p class="res-sub" id="resBrief"></p>
+      </div>
+      <div class="results-list reveal" style="transition-delay:0.12s;" id="resultsList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="next-section">
+  <div class="container">
+    <p class="next-eyebrow reveal">Næste projekt</p>
+    <a class="next-card reveal" id="nextCard" href="#" style="transition-delay:0.1s;">
+      <div class="next-card-img">
+        <img id="nextImg" src="" alt="">
+      </div>
+      <div class="next-card-body">
+        <span class="next-card-sub">Case Study</span>
+        <div class="next-card-name" id="nextName"></div>
+        <span class="next-card-cta">Se case →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- 404 -->
+<div class="not-found" id="notFound">
+  <h1>404</h1>
+  <p>Projektet blev ikke fundet.</p>
+  <a href="trovic_full (3).html#projects">← Se alle projekter</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="trovic_full (3).html" class="footer-logo">Tro<span>vic</span></a>
+        <p class="footer-tagline">Vi designer og bygger digitale produkter der gør brands umulige at ignorere.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Behance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 13.5H6v3h3.5c1 0 1.5-.5 1.5-1.5s-.5-1.5-1.5-1.5zm-.5-4H6v2.5h3c.8 0 1.3-.5 1.3-1.3 0-.7-.5-1.2-1.3-1.2zM22 9.5h-5V8h5v1.5zM2 5h8.5C13 5 15 6.5 15 9c0 1.5-.8 2.7-2 3.3C14.5 13 15.5 14.3 15.5 16c0 2.8-2.2 4-5 4H2V5zm17 6c0 2.5-1.8 4.5-4.5 4.5S10 13.5 10 11s1.8-4.5 4.5-4.5S19 8.5 19 11zm-2.5 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-nav">
+          <li><a href="trovic_full (3).html#services">Hjemmesider</a></li>
+          <li><a href="trovic_full (3).html#services">Webshops</a></li>
+          <li><a href="trovic_full (3).html#services">Webapps &amp; Apps</a></li>
+          <li><a href="priser.html">Prisberegner</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Virksomhed</div>
+        <ul class="footer-nav">
+          <li><a href="about.html">Om os</a></li>
+          <li><a href="trovic_full (3).html#projects">Projekter</a></li>
+          <li><a href="trovic_full (3).html#projects">Cases</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Kontakt</div>
+        <ul class="footer-nav">
+          <li><a href="mailto:hello@trovic.dk">hello@trovic.dk</a></li>
+          <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
+          <li><span>København, Danmark</span></li>
+          <li><a href="contact.html" class="footer-cta-link">Start et projekt →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2024 Trovic Studio ApS</span>
+        <span class="footer-divider">·</span>
+        <span>CVR: 12 34 56 78</span>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Privatlivspolitik</a>
+        <a href="#">Cookiepolitik</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const PROJECTS = {
+  hejdoktor: {
+    name: 'HejDoktor<em>.dk</em>',
+    year: '2024',
+    tags: [{ label: 'Web Design', accent: true }, { label: 'UI/UX' }],
+    tech: ['Figma', 'UX Research', 'Prototyping'],
+    img: 'https://pub-752aa4b9003c4c9782da7672bd7acb76.r2.dev/Hej%20Doktor.png',
+    accent: '#7c5cbf',
+    heroBg: '#1a1040',
+    tagline: 'Redesign af Danmarks førende online lægeplatform.',
+    brief: 'HejDoktor.dk kontaktede os med et klart mål: modernisere en forældet platform og øge konverteringsraten markant. Platformen betjener over 2 millioner danskere månedligt.',
+    challenge: 'Den eksisterende platform var bygget i 2017 og led under forvirrende brugerflow, lav mobiloptimering og høj afvisningsprocent. Brugerne opgav processen halvvejs.',
+    solution: 'Vi redesignede hele UX-flowet fra bunden — forenklede onboarding til 3 trin, optimerede til mobile-first og indførte et nyt designsystem baseret på klarhed og tillid.',
+    outcome: 'Konverteringsraten steg med 65% inden for de første 8 uger. Afvisningsprocenten faldt med 38%, og brugertilfredsscoren steg til 4.7/5.',
+    stats: [
+      { val: 65,  unit: '%',     label: 'Stigning i konvertering' },
+      { val: 38,  unit: '%',     label: 'Fald i afvisningsrate' },
+      { val: 3,   unit: ' uger', label: 'Fra brief til levering' },
+      { val: 47,  unit: 'k',     label: 'Månedlige aktive brugere' },
+    ],
+    process: [
+      { phase: '01 — Research',  title: 'Brugerinterviews & heuristisk analyse',   desc: 'Vi interviewede 12 eksisterende brugere og gennemgik alle kritiske flows. Vi identificerede 9 primære friktionspunkter i booking- og konsultationsflowet.' },
+      { phase: '02 — Design',    title: 'Wireframes → Prototyper → Test',           desc: 'Vi itererede over 3 designrunder med brugertests. Det nye system byggede på et 8pt grid, klare typografiskalaer og et beroligende blå-grønt farvepalette.' },
+      { phase: '03 — Levering',  title: 'Designsystem & handover',                  desc: 'Vi leverede et komplet Figma-designsystem med 120+ komponenter, annoterede prototyper og en interaktiv styleguide til det interne udviklingsteam.' },
+    ],
+    results: [
+      'Forvirrende booking-flow reduceret fra 9 trin til 3 — uden at miste information.',
+      'Ny komponentbibliotek i Figma adopted af hele produktteamet som standard.',
+      'Mobilkonvertering steg med 72% alene på baggrund af UX-optimeringer.',
+    ],
+    next: 'jobnet',
+  },
+
+  jobnet: {
+    name: 'Jobnet',
+    year: '2023',
+    tags: [{ label: 'UI/UX', accent: true }, { label: 'Gov. Platform' }],
+    tech: ['UX Research', 'Figma', 'Accessibility'],
+    img: 'https://pub-752aa4b9003c4c9782da7672bd7acb76.r2.dev/Jobnet.png',
+    accent: '#1e7abf',
+    heroBg: '#0d2137',
+    tagline: 'UX-strategi og redesign af Danmarks nationale jobportal.',
+    brief: 'Styrelsen for Arbejdsmarked og Rekruttering engagerede Trovic til at gennemgå og redesigne Jobnet — platformen der bruges af 1,8 millioner danskere til jobsøgning hvert år.',
+    challenge: 'Jobnet var præget af forældet informationsarkitektur, lav tilgængelighed og en fragmenteret mobiloplevelse. Borgere med lavere digital kompetence opgav platformen.',
+    solution: 'Vi kortlagde 47 unikke brugerrejser, redesignede informationsarkitekturen og skabte et tilgængeligt UI-komponentbibliotek der møder WCAG 2.1 AA-standarden.',
+    outcome: 'Drop-off raten faldt med 30%. Brugertilfredsscoren steg fra 2.9 til 4.2/5. Designsystemet er adopteret som standard på tværs af ministeriet.',
+    stats: [
+      { val: 30, unit: '%',     label: 'Fald i drop-off rate' },
+      { val: 47, unit: '',      label: 'Kortlagte brugerrejser' },
+      { val: 6,  unit: ' uger', label: 'Projektlængde' },
+      { val: 18, unit: 'M',     label: 'Årlige besøg' },
+    ],
+    process: [
+      { phase: '01 — Research', title: 'Brugerrejser & tilgængeligheds-audit', desc: 'Vi gennemgik platformen mod WCAG 2.1, afholdt kontekstuelle interviews med 8 primære brugertyper og kortlagde alle kritiske opgaveflows.' },
+      { phase: '02 — Design',   title: 'IA-redesign & komponentbibliotek',    desc: 'Vi restrukturerede navigationshierarkiet og udviklede et 200+ komponent designsystem valideret med iterativ brugertestning på målgruppen.' },
+      { phase: '03 — Levering', title: 'Handover & implementeringssupport',   desc: 'Vi fulgte implementeringen tæt med ugentlige reviews, QA-sessions og en detaljeret motion-guide til alle interaktionsanimationer.' },
+    ],
+    results: [
+      'Informationsarkitekturen reduceret fra 7 niveauer til 3 — uden at miste indhold.',
+      'Alle kritiske flows godkendt som WCAG 2.1 AA-kompatible efter redesign.',
+      'Designsystemet adopteret som officiel standard på tværs af 4 ministerier.',
+    ],
+    next: 'dentaaid',
+  },
+
+  dentaaid: {
+    name: 'DentaAid',
+    year: '2024',
+    tags: [{ label: 'Web Design', accent: true }, { label: 'Branding' }],
+    tech: ['Shopify', 'Branding', 'Motion Design'],
+    img: 'https://pub-752aa4b9003c4c9782da7672bd7acb76.r2.dev/Dentaaid.png',
+    accent: '#0d9488',
+    heroBg: '#0a1a1a',
+    tagline: 'Brand-identitet og landingsside for en moderne dental telehealth service.',
+    brief: 'DentaAid kom til os som en idé på en serviet. Vi byggede alt fra nul: navn, logo, farvepalette, tone of voice og en konverteringsoptimeret Shopify-landingsside.',
+    challenge: 'Telehealth-markedet er overbefolket med generiske brands. DentaAid skulle skille sig ud med professionalisme og varme — og konvertere i en kategori med høj skepsis.',
+    solution: 'Vi udviklede en teal-baseret brandidentitet med rene linjer og menneskelige billeder. Landingssiden er bygget med et klinisk men tilgængeligt udtryk med stærke sociale beviser.',
+    outcome: 'DentaAid solgte ud af pilotprogrammet inden for 72 timer efter lancering. Landingssiden konverterer 8.4% fra organisk trafik mod branchesnittet på 2–3%.',
+    stats: [
+      { val: 8,  unit: '.4%',   label: 'Konverteringsrate' },
+      { val: 72, unit: 't',     label: 'Til udsolgt pilot' },
+      { val: 4,  unit: ' uger', label: 'Fra brief til live' },
+      { val: 3,  unit: 'x',     label: 'ROI inden for 3 mdr.' },
+    ],
+    process: [
+      { phase: '01 — Brand',    title: 'Navngivning, logo & identitet', desc: 'Vi startede med en navneworkshop, udviklede 3 brandretninger og itererede til en ren, medicinsk-minimalistisk identitet med teal som primærfarve.' },
+      { phase: '02 — Design',   title: 'Landingsside-design & CRO',    desc: 'Vi designede en side bygget på konverteringsprincipper: stærk above-the-fold, sociale beviser, tydelige USP\'er og friktionsløs CTA-flow.' },
+      { phase: '03 — Build',    title: 'Shopify-implementering',        desc: 'Vi byggede siden i Shopify med custom Liquid-templates, optimerede load-tid til under 1.8 sek og integrerede email-capture og betalingsgateway.' },
+    ],
+    results: [
+      'Komplet brand-identitet skabt fra nul — logo, farver, typografi og tone of voice.',
+      'Landingssiden konverterer 8.4% fra kold organisk trafik — 3x branchesnittet.',
+      'Pilotprogram udsolgt 72 timer efter lancering udelukkende via landingssiden.',
+    ],
+    next: 'brotego',
+  },
+
+  brotego: {
+    name: 'Brotego',
+    year: '2024',
+    tags: [{ label: 'E-commerce', accent: true }, { label: 'Mobile Design' }],
+    tech: ['Shopify', 'CRO', 'Mobile First'],
+    img: 'https://pub-752aa4b9003c4c9782da7672bd7acb76.r2.dev/Brotego.png',
+    accent: '#c9a84c',
+    heroBg: '#111111',
+    tagline: 'Fuldt Shopify-build for et premium mandepleje-brand.',
+    brief: 'Brotego ville ind på et af de hurtigst voksende segmenter i skandinavisk e-commerce: premium grooming til mænd. De havde produktet — vi byggede oplevelsen.',
+    challenge: 'Den eksisterende løsning var et standard Shopify-tema der ikke afspejlede brandets premium-positionering. Konverteringsraten lå på 1.2% og mobiloplevelsen var dårlig.',
+    solution: 'Vi byggede et custom Shopify-theme fra bunden: bold typografi, cinema-inspireret æstetik, lynhurtige produktsider og et mobile-first checkout-flow optimeret til impulskøb.',
+    outcome: 'Konverteringsraten steg fra 1.2% til 3.8% — over 200% stigning. Mobilsalget voksede til 78% af al omsætning. AOV steg med 34% efter implementering af bundle-logik.',
+    stats: [
+      { val: 216, unit: '%',     label: 'Stigning i konvertering' },
+      { val: 78,  unit: '%',     label: 'Af salg via mobil' },
+      { val: 34,  unit: '%',     label: 'Stigning i AOV' },
+      { val: 3,   unit: ' uger', label: 'Fra brief til lancering' },
+    ],
+    process: [
+      { phase: '01 — Strategi', title: 'Konkurrentanalyse & CRO-audit',      desc: 'Vi analyserede de 10 største konkurrenter, kortlagde Brotegos positionering og identificerede de 6 primære friktionspunkter i det eksisterende checkout-flow.' },
+      { phase: '02 — Design',   title: 'Custom Shopify-theme design',         desc: 'Vi designede et 40-siders Figma-spec med alle states, breakpoints og microanimationer. Bold serif-overskrifter og guld-accenter skaber et premium feel.' },
+      { phase: '03 — Build',    title: 'Shopify-udvikling & CRO-optimering', desc: 'Vi kodede hele themet i Liquid, optimerede til Core Web Vitals og implementerede sticky add-to-cart, bundle-upsells og en 1-page checkout.' },
+    ],
+    results: [
+      'Custom Shopify-theme bygget fra bunden — ingen generiske templates.',
+      'Mobilkonvertering tredoblet med mobile-first checkout og sticky add-to-cart.',
+      'Bundle-upsell logik øgede gennemsnitlig ordreværdi med 34% allerede i uge 1.',
+    ],
+    next: 'hejdoktor',
+  },
+};
+
+const NEXT_NAMES = {
+  hejdoktor: 'HejDoktor.dk',
+  jobnet: 'Jobnet',
+  dentaaid: 'DentaAid',
+  brotego: 'Brotego',
+};
+
+function setAccent(color) {
+  document.documentElement.style.setProperty('--accent', color);
+}
+
+function render(slug) {
+  const p = PROJECTS[slug];
+
+  if (!p) {
+    document.querySelectorAll('section, footer').forEach(el => el.style.display = 'none');
+    document.getElementById('notFound').style.display = 'flex';
+    document.title = '404 – Trovic';
+    document.body.classList.add('loaded');
+    return;
+  }
+
+  // Accent + bg colors
+  setAccent(p.accent);
+  document.documentElement.style.setProperty('--hero-bg', p.heroBg);
+
+  // Page title
+  document.title = `${p.name.replace(/<[^>]+>/g, '')} Case Study – Trovic`;
+
+  // Hero
+  document.getElementById('heroYear').textContent = p.year;
+  document.getElementById('heroTitle').innerHTML = p.name;
+  document.getElementById('heroTagline').textContent = p.tagline;
+  document.getElementById('heroImg').src = p.img;
+  document.getElementById('heroImg').alt = p.name.replace(/<[^>]+>/g, '');
+  document.getElementById('fullImg').src = p.img;
+  document.getElementById('fullImg').alt = p.name.replace(/<[^>]+>/g, '') + ' screenshot';
+
+  // Tags
+  document.getElementById('heroTags').innerHTML = p.tags
+    .map(t => `<span class="ctag${t.accent ? ' accent' : ''}">${t.label}</span>`).join('');
+  document.getElementById('heroTech').innerHTML = p.tech
+    .map(t => `<span class="ctag">${t}</span>`).join('');
+
+  // Overview
+  document.getElementById('ovChallenge').textContent = p.challenge;
+  document.getElementById('ovSolution').textContent = p.solution;
+  document.getElementById('ovOutcome').textContent = p.outcome;
+
+  // Stats
+  document.getElementById('statsGrid').innerHTML = p.stats.map(s => `
+    <div class="stat-col" data-target="${s.val}">
+      <div class="stat-val"><span class="num">0</span><span class="unit">${s.unit}</span></div>
+      <div class="stat-lbl">${s.label}</div>
+    </div>`).join('');
+
+  // Process
+  document.getElementById('processGrid').innerHTML = p.process.map(ph => `
+    <div class="process-card reveal">
+      <div class="pc-phase">${ph.phase}</div>
+      <div class="pc-title">${ph.title}</div>
+      <p class="pc-desc">${ph.desc}</p>
+    </div>`).join('');
+
+  // Results
+  document.getElementById('resBrief').textContent = p.brief;
+  const checkSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+  document.getElementById('resultsList').innerHTML = p.results.map(r => `
+    <div class="result-row">
+      <div class="res-check">${checkSvg}</div>
+      <p class="res-text">${r}</p>
+    </div>`).join('');
+
+  // Next project
+  const nextSlug = p.next;
+  const nextP = PROJECTS[nextSlug];
+  document.getElementById('nextCard').href = `case.html?project=${nextSlug}`;
+  document.getElementById('nextImg').src = nextP.img;
+  document.getElementById('nextImg').alt = NEXT_NAMES[nextSlug];
+  document.getElementById('nextName').textContent = NEXT_NAMES[nextSlug];
+
+  document.body.classList.add('loaded');
+}
+
+// Count-up animation
+function animateCount(el, target, duration = 1400) {
+  let start = null;
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 4);
+    el.textContent = Math.floor(eased * target);
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(step);
+}
+
+// Observers
+function initObservers() {
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('visible'))
+        entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        entry.target.classList.add('counted');
+        const numEl = entry.target.querySelector('.num');
+        const target = parseInt(entry.target.dataset.target);
+        setTimeout(() => animateCount(numEl, target), i * 100);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stat-col').forEach(el => statsObs.observe(el));
+}
+
+// Boot
+const slug = new URLSearchParams(window.location.search).get('project') || '';
+render(slug.toLowerCase());
+initObservers();
+</script>
+
+</body>
+</html>
