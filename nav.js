@@ -3,10 +3,12 @@
   if (!nav) return;
 
   // ── ACTIVE STATE ──────────────────────────────────────────────────────────
-  const currentFile = location.pathname.split('/').pop() || 'trovic_full (3).html';
+  const currentFile = location.pathname.split('/').pop() || 'index.html';
   nav.querySelectorAll('.nav-links a').forEach(a => {
-    const file = a.getAttribute('href').split('#')[0];
-    if (file === currentFile) a.classList.add('active');
+    const href = a.getAttribute('href');
+    const file = href.split('#')[0];
+    const hasHash = href.includes('#');
+    if (!hasHash && file === currentFile) a.classList.add('active');
   });
 
   // ── SMOOTH SCROLL (hash links on same page) ──────────────────────────────

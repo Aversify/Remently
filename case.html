@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study – Trovic</title>
+<title>Case Study – Remently</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -339,15 +339,15 @@ footer { background: var(--dark); border-top: none; padding: 72px 0 0; }
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">Tro<span>vic</span></a>
+    <a class="nav-logo" href="index.html">Rement<span>ly</span></a>
     <ul class="nav-links">
       <li><a href="about.html">Om os</a></li>
       <li><a href="index.html#services">Services</a></li>
       <li><a href="index.html#projects">Projekter</a></li>
-      <li><a href="priser.html">Priser</a></li>
+      
       <li><a href="contact.html">Kontakt</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">Tag kontakt</a>
+    <a href="priser.html" class="nav-cta">Prisberegner</a>
   </div>
 </nav>
 <script src="nav.js"></script>
@@ -471,7 +471,7 @@ footer { background: var(--dark); border-top: none; padding: 72px 0 0; }
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="footer-logo">Tro<span>vic</span></a>
+        <a href="index.html" class="footer-logo">Rement<span>ly</span></a>
         <p class="footer-tagline">Vi designer og bygger digitale produkter der gør brands umulige at ignorere.</p>
         <div class="footer-socials">
           <a href="#" class="footer-social" aria-label="Instagram">
@@ -506,7 +506,7 @@ footer { background: var(--dark); border-top: none; padding: 72px 0 0; }
       <div class="footer-col">
         <div class="footer-col-title">Kontakt</div>
         <ul class="footer-nav">
-          <li><a href="mailto:hello@trovic.dk">hello@trovic.dk</a></li>
+          <li><a href="mailto:hello@remently.dk">hello@remently.dk</a></li>
           <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
           <li><span>København, Danmark</span></li>
           <li><a href="contact.html" class="footer-cta-link">Start et projekt →</a></li>
@@ -515,7 +515,7 @@ footer { background: var(--dark); border-top: none; padding: 72px 0 0; }
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-left">
-        <span>© 2024 Trovic Studio ApS</span>
+        <span>© 2024 Remently Studio ApS</span>
         <span class="footer-divider">·</span>
         <span>CVR: 12 34 56 78</span>
       </div>
@@ -570,7 +570,7 @@ const PROJECTS = {
     accent: '#1e7abf',
     heroBg: '#0d2137',
     tagline: 'UX-strategi og redesign af Danmarks nationale jobportal.',
-    brief: 'Styrelsen for Arbejdsmarked og Rekruttering engagerede Trovic til at gennemgå og redesigne Jobnet — platformen der bruges af 1,8 millioner danskere til jobsøgning hvert år.',
+    brief: 'Styrelsen for Arbejdsmarked og Rekruttering engagerede Remently til at gennemgå og redesigne Jobnet — platformen der bruges af 1,8 millioner danskere til jobsøgning hvert år.',
     challenge: 'Jobnet var præget af forældet informationsarkitektur, lav tilgængelighed og en fragmenteret mobiloplevelse. Borgere med lavere digital kompetence opgav platformen.',
     solution: 'Vi kortlagde 47 unikke brugerrejser, redesignede informationsarkitekturen og skabte et tilgængeligt UI-komponentbibliotek der møder WCAG 2.1 AA-standarden.',
     outcome: 'Drop-off raten faldt med 30%. Brugertilfredsscoren steg fra 2.9 til 4.2/5. Designsystemet er adopteret som standard på tværs af ministeriet.',
@@ -675,7 +675,7 @@ function render(slug) {
   if (!p) {
     document.querySelectorAll('section, footer').forEach(el => el.style.display = 'none');
     document.getElementById('notFound').style.display = 'flex';
-    document.title = '404 – Trovic';
+    document.title = '404 – Remently';
     document.body.classList.add('loaded');
     return;
   }
@@ -685,7 +685,7 @@ function render(slug) {
   document.documentElement.style.setProperty('--hero-bg', p.heroBg);
 
   // Page title
-  document.title = `${p.name.replace(/<[^>]+>/g, '')} Case Study – Trovic`;
+  document.title = `${p.name.replace(/<[^>]+>/g, '')} Case Study – Remently`;
 
   // Hero
   document.getElementById('heroYear').textContent = p.year;
