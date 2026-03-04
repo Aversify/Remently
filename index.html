@@ -61,11 +61,7 @@
   <div class="container hero-inner">
     <div class="hero-left">
       <div class="hero-badge"><span class="badge-dot"></span>Tilgængelig for nye projekter</div>
-      <h1 class="hero-headline">
-        <span class="line line-1">Vi <em>designer</em></span>
-        <span class="line line-2">digitale løsninger</span>
-        <span class="line line-3">der <em>virker.</em></span>
-      </h1>
+      <h1 class="hero-headline">Vi <em>designer</em> digitale løsninger der <em>virker.</em></h1>
       <p class="hero-sub">Et kreativt bureau der bygger weboplevelser, UI/UX-systemer og mobile produkter for brands der vil lede.</p>
       <div class="hero-actions">
         <button class="btn-primary">Start et projekt →</button>
@@ -199,7 +195,7 @@
       </div>
     </div>
     <div class="cards">
-      <div class="svc-card reveal" style="transition-delay:0.05s;">
+      <a class="svc-card reveal" href="hjemmesider.html" style="transition-delay:0.05s;">
         <div class="svc-top">
           <span class="svc-num">01</span>
           <div class="svc-icon">
@@ -212,8 +208,8 @@
         </div>
         <div class="svc-tags"><span class="svc-tag">Webflow</span><span class="svc-tag">React</span><span class="svc-tag">Next.js</span><span class="svc-tag">CMS</span></div>
         <div class="svc-link"><span>Udforsk</span><span class="svc-arrow">→</span></div>
-      </div>
-      <div class="svc-card reveal" style="transition-delay:0.18s;">
+      </a>
+      <a class="svc-card reveal" href="webshops.html" style="transition-delay:0.18s;">
         <div class="svc-top">
           <span class="svc-num">02</span>
           <div class="svc-icon">
@@ -226,8 +222,8 @@
         </div>
         <div class="svc-tags"><span class="svc-tag">Shopify</span><span class="svc-tag">WooCommerce</span><span class="svc-tag">CRO</span></div>
         <div class="svc-link"><span>Udforsk</span><span class="svc-arrow">→</span></div>
-      </div>
-      <div class="svc-card reveal" style="transition-delay:0.3s;">
+      </a>
+      <a class="svc-card reveal" href="apps.html" style="transition-delay:0.3s;">
         <div class="svc-top">
           <span class="svc-num">03</span>
           <div class="svc-icon">
@@ -240,7 +236,7 @@
         </div>
         <div class="svc-tags"><span class="svc-tag">React Native</span><span class="svc-tag">iOS</span><span class="svc-tag">Android</span><span class="svc-tag">PWA</span></div>
         <div class="svc-link"><span>Udforsk</span><span class="svc-arrow">→</span></div>
-      </div>
+      </a>
     </div>
     <div class="stats-section">
       <div class="stats-divider reveal"><span class="stats-divider-line"></span><span class="stats-divider-label">Tallene taler</span><span class="stats-divider-line"></span></div>
@@ -358,7 +354,7 @@
           <div class="testi-stars">★★★★★</div>
         </div>
       </div>
-      <div class="testi-card testi-card-dark reveal" style="transition-delay:0.18s;">
+      <div class="testi-card reveal" style="transition-delay:0.18s;">
         <div class="testi-quote">"</div>
         <p class="testi-text">Fra første møde til lancering var det en fryd. De forstod vores brand bedre end vi selv gjorde — og leverede en hjemmeside vi er stolte af at vise frem.</p>
         <div class="testi-author">
@@ -459,62 +455,6 @@
   </div>
 </footer>
 
-<script>
-  // Filter pills
-  document.querySelectorAll('.filter-pill').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  // Count-up animation
-  function animateCount(el, target, duration = 1400) {
-    let start = null;
-    const step = ts => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 4);
-      el.textContent = Math.floor(eased * target);
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    };
-    requestAnimationFrame(step);
-  }
-
-  // Stats observer
-  const statsObs = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-          const countEl = entry.target.querySelector('.stat-count');
-          animateCount(countEl, parseInt(entry.target.dataset.target));
-        }, i * 120);
-      }
-    });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.stat-item').forEach(el => statsObs.observe(el));
-
-  // Universal reveal observer (about, services, projects headers + cards)
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-  // Smooth scroll without URL hash change
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-</script>
+<script src="index.js"></script>
 </body>
 </html>

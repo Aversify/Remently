@@ -27,7 +27,7 @@
 <script src="nav.js"></script>
 
 <!-- HERO -->
-<section class="hero hero-dark">
+<section class="hero-dark">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="container">
@@ -41,24 +41,41 @@
           <a class="btn-ghost" href="index.html#projects">Se vores arbejde ↓</a>
         </div>
       </div>
-      <div class="hero-visual reveal" style="transition-delay:0.2s;">
-        <div class="float-card float-card-1">
-          <div class="fc-label">Projekter leveret</div>
-          <div class="fc-stat">40<span>+</span></div>
-          <div class="fc-desc">Brands bygget fra bunden siden 2021</div>
-        </div>
-        <div class="float-card float-card-2">
-          <div class="fc-label">Specialer</div>
-          <div class="fc-pill-row">
-            <span class="fc-pill active">Web Design</span>
-            <span class="fc-pill">UI/UX</span>
-            <span class="fc-pill">Shopify</span>
-            <span class="fc-pill">Branding</span>
+      <div class="about-hero-panel reveal" style="transition-delay:0.2s;">
+        <div class="ahp-stats">
+          <div class="ahp-stat">
+            <div class="ahp-stat-val">40<span>+</span></div>
+            <div class="ahp-stat-lbl">Projekter leveret</div>
+          </div>
+          <div class="ahp-stat">
+            <div class="ahp-stat-val">3.2<span>x</span></div>
+            <div class="ahp-stat-lbl">Gennemsnitlig ROI</div>
+          </div>
+          <div class="ahp-stat">
+            <div class="ahp-stat-val">4</div>
+            <div class="ahp-stat-lbl">År i branchen</div>
+          </div>
+          <div class="ahp-stat">
+            <div class="ahp-stat-val">5<span>★</span></div>
+            <div class="ahp-stat-lbl">Klientrating</div>
           </div>
         </div>
-        <div class="float-card float-card-3">
-          <div class="fc-label">Gennemsnitlig ROI</div>
-          <div class="fc-stat">3.2<span>x</span></div>
+        <div class="ahp-divider"></div>
+        <div class="ahp-services">
+          <div class="ahp-services-label">Vi arbejder med</div>
+          <div class="ahp-tags">
+            <span class="ahp-tag active">Web Design</span>
+            <span class="ahp-tag">UI/UX</span>
+            <span class="ahp-tag">Shopify</span>
+            <span class="ahp-tag">Branding</span>
+            <span class="ahp-tag">React Native</span>
+            <span class="ahp-tag">CRO</span>
+          </div>
+        </div>
+        <div class="ahp-divider"></div>
+        <div class="ahp-location">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Grundlagt i København, 2021
         </div>
       </div>
     </div>
@@ -308,42 +325,7 @@
   </div>
 </footer>
 
-<script>
-  // Reveal observer
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && !e.target.classList.contains('visible'))
-        e.target.classList.add('visible');
-    });
-  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Count-up
-  function countUp(el, target, dur = 1400) {
-    let start = null;
-    const step = ts => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 4);
-      el.textContent = Math.floor(eased * target);
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    };
-    requestAnimationFrame(step);
-  }
-
-  const statsObs = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-        entry.target.classList.add('counted');
-        const el = entry.target.querySelector('.count');
-        const target = parseInt(entry.target.dataset.target);
-        setTimeout(() => countUp(el, target), i * 120);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.stat-cell').forEach(el => statsObs.observe(el));
-</script>
+<script src="about.js"></script>
 
 </body>
 </html>
