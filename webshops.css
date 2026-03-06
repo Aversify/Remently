@@ -115,7 +115,7 @@
 }
 
 .ws-headline em {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Merriweather", serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -216,7 +216,7 @@
 }
 
 /* ── CASES ───────────────────────────────────── */
-.ws-cases-section { background: #f8f4ef; }
+.ws-cases-section { background: #f6f6f1; }
 
 .ws-cases {
   display: grid;
@@ -325,7 +325,7 @@
 }
 
 .ws-cta-headline em {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Merriweather", serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -361,4 +361,12 @@
 
 @media (max-width: 480px) {
   .ws-deliverables { grid-template-columns: 1fr; }
+}
+
+/* Clean emphasis style */
+em {
+  font-style: normal !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
 }

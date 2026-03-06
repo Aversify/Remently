@@ -122,7 +122,7 @@
 }
 
 .ap-headline em {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Merriweather", serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -223,7 +223,7 @@
 }
 
 /* ── TECH STACK ──────────────────────────────── */
-.ap-tech-section { background: #f8f4ef; }
+.ap-tech-section { background: #f6f6f1; }
 
 .ap-tech-grid {
   display: flex;
@@ -278,7 +278,7 @@
 }
 
 .ap-cta-headline em {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Merriweather", serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -313,4 +313,12 @@
 
 @media (max-width: 480px) {
   .ap-deliverables { grid-template-columns: 1fr; }
+}
+
+/* Clean emphasis style */
+em {
+  font-style: normal !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
 }

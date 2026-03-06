@@ -6,12 +6,12 @@
 <title>Case Study – Remently</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream: #f3ede4;
+  --cream: #f7f7f2;
   --orange: #d94f1e;
   --dark: #0f1629;
   --mid: #666;
@@ -41,7 +41,7 @@ body.loaded { opacity: 1; }
 /* ── NAV ─────────────────────────────────────── */
 .site-nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(243,237,228,0.9);
+  background: rgba(247,247,242,0.92);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(15,22,41,0.07);
   padding: 18px 0;
@@ -111,7 +111,7 @@ body.loaded { opacity: 1; }
   margin-bottom: 18px;
 }
 .case-title em {
-  font-family: "Libre Baskerville", serif; font-style: italic;
+  font-family: "Merriweather", serif; font-style: italic;
   font-weight: 400; color: var(--accent); transition: color 0.4s;
 }
 .case-tagline {
@@ -195,7 +195,7 @@ body.loaded { opacity: 1; }
   color: #fff; line-height: 1.15; margin-bottom: 18px;
 }
 .res-headline em {
-  font-family: "Libre Baskerville", serif; font-style: italic;
+  font-family: "Merriweather", serif; font-style: italic;
   font-weight: 400; color: var(--accent); transition: color 0.4s;
 }
 .res-sub { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.45); }
@@ -307,6 +307,14 @@ footer { background: var(--dark); border-top: none; padding: 72px 0 0; }
   .nav-links { display: none; }
   .next-card { flex-direction: column; }
   .next-card-img { width: 100%; height: 200px; }
+}
+
+/* Clean emphasis style */
+em {
+  font-style: normal !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
 }
 </style>
 </head>
